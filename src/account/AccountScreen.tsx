@@ -1,17 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import {ActivityIndicator, Text} from 'react-native';
-import {NativeStackScreenProps} from 'react-native-screens/native-stack';
+import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
 import {
+  BottomBarRoutes,
   NavigationRouteNames,
   NavigationRoutes,
 } from '../navigation/NavigationRoutes';
+import {CompositeScreenProps} from '@react-navigation/native';
+import {StackScreenProps} from '@react-navigation/stack';
 
-type AccountScreenProps = NativeStackScreenProps<
-  NavigationRoutes,
-  NavigationRouteNames.Account
+type AccountScreenProps = CompositeScreenProps<
+  BottomTabScreenProps<BottomBarRoutes, NavigationRouteNames.Account>,
+  StackScreenProps<NavigationRoutes>
 >;
-
-const AccountScreen: React.FC<AccountScreenProps> = props => {
+const AccountScreen: React.FC<AccountScreenProps> = () => {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {}, []);
@@ -19,9 +21,7 @@ const AccountScreen: React.FC<AccountScreenProps> = props => {
   if (isLoading) {
     return <ActivityIndicator />;
   } else {
-    return (
-      <Text>Account Screen</Text>
-    );
+    return <Text>Account Screen</Text>;
   }
 };
 

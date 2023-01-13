@@ -2,8 +2,8 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import LoginScreen from '../login/LoginScreen';
 import {createStackNavigator} from '@react-navigation/stack';
-import AccountScreen from '../account/AccountScreen';
 import {NavigationRouteNames, NavigationRoutes} from './NavigationRoutes';
+import MainScreen from '../main/MainScreen';
 
 const MainStack = createStackNavigator<NavigationRoutes>();
 
@@ -14,7 +14,7 @@ interface Props {
 const NavigationGraph: React.FC<Props> = props => {
   let startRoute = NavigationRouteNames.Login;
   if (props.isLoggingIn) {
-    startRoute = NavigationRouteNames.Account;
+    startRoute = NavigationRouteNames.Main;
   }
 
   return (
@@ -25,8 +25,9 @@ const NavigationGraph: React.FC<Props> = props => {
           component={LoginScreen}
         />
         <MainStack.Screen
-          name={NavigationRouteNames.Account}
-          component={AccountScreen}
+          name={NavigationRouteNames.Main}
+          component={MainScreen}
+          options={{headerShown: false}}
         />
       </MainStack.Navigator>
     </NavigationContainer>
