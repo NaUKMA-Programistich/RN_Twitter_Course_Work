@@ -20,7 +20,6 @@ const App = () => {
       const isLogin = await isLogged();
       setIsLoggingIn(isLogin);
     };
-
     processLogin().catch(console.error);
     SplashScreen.hide();
   }, []);

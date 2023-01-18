@@ -15,14 +15,21 @@
     "@react-navigation/native": "^6.1.1",
     "@react-navigation/stack": "^6.3.10",
     "@types/node": "^18.11.18",
+    "oauth-1.0a": "^2.2.6",
+    "patch-package": "^6.5.1",
     "react": "18.1.0",
     "react-native": "0.70.6",
     "react-native-dotenv": "^3.4.6",
     "react-native-gesture-handler": "2.8.0",
+    "react-native-quick-base64": "^2.0.5",
+    "react-native-quick-crypto": "^0.5.0",
     "react-native-safe-area-context": "4.4.1",
     "react-native-screens": "^3.1.1",
     "react-native-splash-screen": "^3.3.0",
+    "react-native-svg": "^13.7.0",
+    "react-native-svg-transformer": "^1.0.0",
     "react-native-twitter-signin": "^1.1.1",
+    "stream": "^0.0.2",
     "twitter-api-sdk": "^1.2.1"
   },
   "devDependencies": {
@@ -41,6 +48,7 @@
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "0.72.3",
     "react-test-renderer": "18.1.0",
+    "rn-nodeify": "^6.0.1",
     "typescript": "^4.8.3"
   },
   "jest": {
