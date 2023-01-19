@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {ActivityIndicator, Text} from 'react-native';
+import React, {useEffect} from 'react';
+import {Button} from 'react-native';
 import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
 import {
   BottomBarRoutes,
@@ -8,21 +8,21 @@ import {
 } from '../navigation/NavigationRoutes';
 import {CompositeScreenProps} from '@react-navigation/native';
 import {StackScreenProps} from '@react-navigation/stack';
+import {clearAuthData} from '../auth/AuthStorage';
 
 type AccountScreenProps = CompositeScreenProps<
   BottomTabScreenProps<BottomBarRoutes, NavigationRouteNames.Account>,
   StackScreenProps<NavigationRoutes>
 >;
-const AccountScreen: React.FC<AccountScreenProps> = () => {
-  const [isLoading, setLoading] = useState(true);
-
+const AccountScreen: React.FC<AccountScreenProps> = props => {
   useEffect(() => {}, []);
 
-  if (isLoading) {
-    return <ActivityIndicator />;
-  } else {
-    return <Text>Account Screen</Text>;
-  }
+  let onLogOut = async () => {
+    await clearAuthData();
+    props.navigation.replace(NavigationRouteNames.Login);
+  };
+
+  return <Button onPress={onLogOut} title="Log Out" />;
 };
 
 export default AccountScreen;

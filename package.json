@@ -29,6 +29,7 @@
     "react-native-svg": "^13.7.0",
     "react-native-svg-transformer": "^1.0.0",
     "react-native-twitter-signin": "^1.1.1",
+    "react-native-video": "^6.0.0-alpha.4",
     "stream": "^0.0.2",
     "twitter-api-sdk": "^1.2.1"
   },

@@ -40,6 +40,12 @@ export async function getAuthData(): Promise<{
   };
 }
 
+export async function clearAuthData() {
+  await AsyncStorage.removeItem(AUTH_TOKEN_KEY);
+  await AsyncStorage.removeItem(AUTH_TOKEN_SECRET_KEY);
+  await AsyncStorage.removeItem(USER_ID_KEY);
+}
+
 export const getOauthHeader = async (request: OAuth.RequestOptions) => {
   const tokens = await getAuthData();
   const oauth = new OAuth({

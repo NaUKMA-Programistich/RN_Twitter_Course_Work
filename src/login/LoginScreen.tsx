@@ -23,7 +23,7 @@ const LoginScreen: React.FC<LoginScreenProps> = props => {
     await setTokens(authToken, authTokenSecret, userId);
     setLoading(false);
     props.navigation.navigate(NavigationRouteNames.Main, {
-      screen: NavigationRouteNames.Account,
+      screen: NavigationRouteNames.Home,
     });
   };
   const onError = () => {

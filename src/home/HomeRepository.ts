@@ -16,18 +16,17 @@ export const getHomeTimeline = async () => {
 
   const oauthHeader = await getOauthHeader(request);
 
-  try {
-    const response = await fetch(request.url, {
-      method: 'GET',
-      headers: {
-        Host: 'api.twitter.com',
-        ...oauthHeader,
-      },
-    });
-    const json = await response.json();
-    console.log(json);
+  const response = await fetch(request.url, {
+    method: 'GET',
+    headers: {
+      Host: 'api.twitter.com',
+      ...oauthHeader,
+    },
+  });
+  const json = await response.json();
+  if (response.status === 200) {
     return json;
-  } catch (error) {
-    console.error(error);
+  } else {
+    throw new Error(json.errors[0].message);
   }
 };
