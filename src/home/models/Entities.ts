@@ -3,13 +3,7 @@ export interface ExtendedEntities {
 }
 
 export interface Media {
-  id: number;
-  id_str: string;
-  media_url: string;
   media_url_https: string;
-  url: string;
-  display_url: string;
-  expanded_url: string;
   type: string;
   sizes: Sizes;
   video_info: VideoInfo | null;
@@ -25,7 +19,6 @@ export interface SmallSize {
 }
 
 export interface VideoInfo {
-  aspect_ratio: number[];
   variants: VideoVariants[];
 }
 

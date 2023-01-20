@@ -1,5 +1,5 @@
 import React from 'react';
-import {Animated, Linking, StyleSheet, View} from 'react-native';
+import {Animated, Linking, StyleSheet, TouchableOpacity} from 'react-native';
 import Text = Animated.Text;
 import {Tweet} from '../models/Tweet';
 import ProfileView from './ProfileView';
@@ -14,14 +14,13 @@ const TweetView: React.FC<Props> = props => {
   const openUrl = `https://twitter.com/${props.tweet.user.screen_name}/status/${props.tweet.id_str}`;
 
   return (
-    <View style={styles.root}>
+    <TouchableOpacity
+      style={styles.root}
+      onLongPress={() => Linking.openURL(openUrl)}>
       <ProfileView user={props.tweet.user} />
       <Text>{props.tweet.text}</Text>
       {medias && <MediasView medias={medias} />}
-      <Text style={styles.button} onPress={() => Linking.openURL(openUrl)}>
-        {'Open Tweet in Twitter'}
-      </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
